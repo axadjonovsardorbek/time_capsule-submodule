@@ -4,8 +4,8 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "users.proto";
-import "memories.proto";
+// import "users.proto";
+// import "memories.proto";
 import "common.proto";
 
 service CommentsService{
@@ -27,11 +27,17 @@ message CommentsUpdateReq{
     string content = 2;
 }
 
+// message CommentsRes{
+//     string id = 1;
+//     string content = 2;
+//     MemoriesRes memory = 3;
+//     UsersRes user = 4;
+// }
 message CommentsRes{
     string id = 1;
     string content = 2;
-    MemoriesRes memory = 3;
-    UsersRes user = 4;
+    string memory_id = 3;
+    string user_id = 4;
 }
 
 message CommentsGetByIdRes{

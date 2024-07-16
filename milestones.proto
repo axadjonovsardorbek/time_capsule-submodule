@@ -4,7 +4,7 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "users.proto";
+// import "users.proto";
 import "common.proto";
 
 service MilestonesService{
@@ -28,12 +28,20 @@ message MilestonesUpdateReq{
     string date = 3;
 }
 
+// message MilestonesRes{
+//     string id = 1;
+//     string title = 2;
+//     string date = 3;
+//     string category = 4;
+//     UsersRes user = 5;
+// }
+
 message MilestonesRes{
     string id = 1;
     string title = 2;
     string date = 3;
     string category = 4;
-    UsersRes user = 5;
+    string user_id = 5;
 }
 
 message MilestonesGetByIdRes{

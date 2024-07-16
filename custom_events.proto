@@ -4,7 +4,7 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "users.proto";
+// import "users.proto";
 import "common.proto";
 
 service CustomEventsService{
@@ -29,13 +29,22 @@ message CustomEventsUpdateReq{
     string description = 3;
 }
 
+// message CustomEventsRes{
+//     string id = 1;
+//     string title = 2;
+//     string description = 3;
+//     string date = 4;
+//     string category = 5;
+//     UsersRes user = 6;
+// }
+
 message CustomEventsRes{
     string id = 1;
     string title = 2;
     string description = 3;
     string date = 4;
     string category = 5;
-    UsersRes user = 6;
+    string user_id = 6;
 }
 
 message CustomEventsGetByIdRes{

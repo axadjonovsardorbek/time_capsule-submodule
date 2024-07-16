@@ -4,7 +4,7 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "memories.proto";
+// import "memories.proto";
 import "common.proto";
 
 service MediasService{
@@ -27,12 +27,20 @@ message MediasUpdateReq{
     string url = 3;
 }
 
+// message MediasRes{
+//     string id = 1;
+//     string type = 2;
+//     string url = 3;
+//     string date = 4;
+//     MemoriesRes memory = 5;
+// }
+
 message MediasRes{
     string id = 1;
     string type = 2;
     string url = 3;
     string date = 4;
-    MemoriesRes memory = 9;
+    string memory_id = 5;
 }
 
 message MediasGetByIdRes{

@@ -4,8 +4,8 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "users.proto";
-import "memories.proto";
+// import "users.proto";
+// import "memories.proto";
 import "common.proto";
 
 service SharedMemoriesService{
@@ -29,13 +29,22 @@ message SharedMemoriesUpdateReq{
     string message = 2;
 }
 
+// message SharedMemoriesRes{
+//     string id = 1;
+//     string message = 2;
+//     string shared_at = 3;
+//     MemoriesRes memory = 4;
+//     UsersRes shared = 5;
+//     UsersRes recipient = 6;
+// }
+
 message SharedMemoriesRes{
     string id = 1;
     string message = 2;
     string shared_at = 3;
-    MemoriesRes memory = 4;
-    UsersRes shared = 5;
-    UsersRes recipient = 6;
+    string memory_id = 4;
+    string shared_id = 5;
+    string recipient_id = 6;
 }
 
 message SharedMemoriesGetByIdRes{

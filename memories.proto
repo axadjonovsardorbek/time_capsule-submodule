@@ -4,7 +4,7 @@ package time_capsule;
 
 option go_package = "genproto/";
 
-import "users.proto";
+// import "users.proto";
 import "common.proto";
 
 service MemoriesService{
@@ -34,6 +34,18 @@ message MemoriesUpdateReq{
     string privacy = 5;
 }
 
+// message MemoriesRes{
+//     string id = 1;
+//     string title = 2;
+//     string description = 3;
+//     string date = 4;
+//     repeated string tags = 5;
+//     string location = 6;
+//     string place_name = 7;
+//     string privacy = 8;
+//     UsersRes user = 9;
+// }
+
 message MemoriesRes{
     string id = 1;
     string title = 2;
@@ -43,7 +55,7 @@ message MemoriesRes{
     string location = 6;
     string place_name = 7;
     string privacy = 8;
-    UsersRes user = 9;
+    string user_id = 9;
 }
 
 message MemoriesGetByIdRes{
