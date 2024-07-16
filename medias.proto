@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "memories.proto";
+import "common.proto";
+
+service MediasService{
+    rpc Create(MediasCreateReq) returns (Void);
+    rpc GetById(ById) returns (MediasGetByIdRes);
+    rpc GetAll(MediasGetAllReq) returns (MediasGetAllRes);
+    rpc Update(ById) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message MediasCreateReq{
+    string memory_id = 1;
+    string type = 2;
+    string url = 3;
+}
+
+message MediasUpdateReq{
+    string id = 1;
+    string type = 2;
+    string url = 3;
+}
+
+message MediasRes{
+    string id = 1;
+    string type = 2;
+    string url = 3;
+    string date = 4;
+    MemoriesRes memory = 9;
+}
+
+message MediasGetByIdRes{
+    MediasRes media = 1;
+}
+
+message MediasGetAllRes{
+    repeated MediasRes medias = 1;
+    int32 count = 2;
+}
+
+message MediasGetAllReq{
+    string memory_id = 1;
+    Filter filter = 2;
+}

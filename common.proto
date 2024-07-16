@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+message Void{}
+
+message ById{
+    string id = 1;
+}
+
+message Filter{
+    int32 Page = 1;
+}

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "users.proto";
+import "memories.proto";
+import "common.proto";
+
+service CommentsService{
+    rpc Create(CommentsCreateReq) returns (Void);
+    rpc GetById(ById) returns (CommentsGetByIdRes);
+    rpc GetAll(CommentsGetAllReq) returns (CommentsGetAllRes);
+    rpc Update(ById) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message CommentsCreateReq{
+    string memory_id = 1;
+    string user_id = 2;
+    string content = 3;
+}
+
+message CommentsUpdateReq{
+    string id = 1;
+    string content = 2;
+}
+
+message CommentsRes{
+    string id = 1;
+    string content = 2;
+    MemoriesRes memory = 3;
+    UsersRes user = 4;
+}
+
+message CommentsGetByIdRes{
+    CommentsRes comment = 1;
+}
+
+message CommentsGetAllRes{
+    repeated CommentsRes comments = 1;
+    int32 count = 2;
+}
+
+message CommentsGetAllReq{
+    string memory_id = 1;
+    string user_id = 2;
+    Filter filter = 3;
+}

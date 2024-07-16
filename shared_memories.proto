@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "users.proto";
+import "memories.proto";
+import "common.proto";
+
+service SharedMemoriesService{
+    rpc Create(SharedMemoriesCreateReq) returns (Void);
+    rpc GetById(ById) returns (SharedMemoriesGetByIdRes);
+    rpc GetAll(SharedMemoriesGetAllReq) returns (SharedMemoriesGetAllRes);
+    rpc Update(ById) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message SharedMemoriesCreateReq{
+    string memory_id = 1;
+    string shared_id = 2;
+    string recipient_id = 3;
+    string message = 4;
+    string shared_at = 5;
+}
+
+message SharedMemoriesUpdateReq{
+    string id = 1;
+    string message = 2;
+}
+
+message SharedMemoriesRes{
+    string id = 1;
+    string message = 2;
+    string shared_at = 3;
+    MemoriesRes memory = 4;
+    UsersRes shared = 5;
+    UsersRes recipient = 6;
+}
+
+message SharedMemoriesGetByIdRes{
+    SharedMemoriesRes memory = 1;
+}
+
+message SharedMemoriesGetAllRes{
+    repeated SharedMemoriesRes memories = 1;
+    int32 count = 2;
+}
+
+message SharedMemoriesGetAllReq{
+    string shared_id = 1;
+    string recipient_id = 2;
+    Filter filter = 3;
+}

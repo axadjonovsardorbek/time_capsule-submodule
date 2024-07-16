@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "users.proto";
+import "common.proto";
+
+service MilestonesService{
+    rpc Create(MilestonesCreateReq) returns (Void);
+    rpc GetById(ById) returns (MilestonesGetByIdRes);
+    rpc GetAll(MilestonesGetAllReq) returns (MilestonesGetAllRes);
+    rpc Update(ById) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message MilestonesCreateReq{
+    string user_id = 1;
+    string title = 2;
+    string date = 3;
+    string category = 4;
+}
+
+message MilestonesUpdateReq{
+    string id = 1;
+    string title = 2;
+    string date = 3;
+}
+
+message MilestonesRes{
+    string id = 1;
+    string title = 2;
+    string date = 3;
+    string category = 4;
+    UsersRes user = 5;
+}
+
+message MilestonesGetByIdRes{
+    MilestonesRes milestone = 1;
+}
+
+message MilestonesGetAllRes{
+    repeated MilestonesRes milestones = 1;
+    int32 count = 2;
+}
+
+message MilestonesGetAllReq{
+    string user_id = 1;
+    Filter filter = 2;
+}

@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "users.proto";
+import "common.proto";
+
+service CustomEventsService{
+    rpc Create(CustomEventsCreateReq) returns (Void);
+    rpc GetById(ById) returns (CustomEventsGetByIdRes);
+    rpc GetAll(CustomEventsGetAllReq) returns (CustomEventsGetAllRes);
+    rpc Update(ById) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message CustomEventsCreateReq{
+    string user_id = 1;
+    string title = 2;
+    string description = 3;
+    string date = 4;
+    string category = 5;
+}
+
+message CustomEventsUpdateReq{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+message CustomEventsRes{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string date = 4;
+    string category = 5;
+    UsersRes user = 6;
+}
+
+message CustomEventsGetByIdRes{
+    CustomEventsRes event = 1;
+}
+
+message CustomEventsGetAllRes{
+    repeated CustomEventsRes events = 1;
+    int32 count = 2;
+}
+
+message CustomEventsGetAllReq{
+    string user_id = 1;
+    Filter filter = 2;
+}
