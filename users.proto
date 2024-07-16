@@ -24,6 +24,7 @@ message UsersRegister{
     string password = 3;
     string full_name = 4;
     string date_of_birth = 5;
+    UsersSettings settings = 6;
 }
 
 message UsersLogin{
