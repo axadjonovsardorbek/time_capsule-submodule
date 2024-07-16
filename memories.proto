@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "users.proto";
+
+service MemoriesService{
+
+}
+
+message MemoriesCreateReq{
+    string user_id = 1;
+    string title = 2;
+    string description = 3;
+    string date = 4;
+    repeated string tags = 5;
+    string location = 6;
+    string place_name = 7;
+    string privacy = 8;
+}
+
+message MemoriesUpdateReq{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    repeated string tags = 4;
+    string privacy = 5;
+}
+
+message MemoriesGetByIdRes{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string date = 4;
+    repeated string tags = 5;
+    string location = 6;
+    string place_name = 7;
+    string privacy = 8;
+    UsersRes user = 9;
+}
+
+// CREATE TABLE IF NOT EXISTS memories (
+//     id UUID PRIMARY KEY,
+//     user_id UUID REFERENCES users(id),
+//     title VARCHAR(255) NOT NULL,
+//     description TEXT,
+//     date DATE NOT NULL,
+//     tags TEXT[],
+//     location POINT,
+//     place_name VARCHAR(255),
+//     privacy privacy_type NOT NULL,
+//     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+//     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+//     deleted_at BIGINT DEFAULT 0
+// );
