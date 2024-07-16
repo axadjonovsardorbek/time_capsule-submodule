@@ -12,7 +12,7 @@ service CommentsService{
     rpc Create(CommentsCreateReq) returns (Void);
     rpc GetById(ById) returns (CommentsGetByIdRes);
     rpc GetAll(CommentsGetAllReq) returns (CommentsGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(CommentsUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 

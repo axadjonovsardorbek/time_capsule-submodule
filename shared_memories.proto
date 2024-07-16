@@ -12,7 +12,7 @@ service SharedMemoriesService{
     rpc Create(SharedMemoriesCreateReq) returns (Void);
     rpc GetById(ById) returns (SharedMemoriesGetByIdRes);
     rpc GetAll(SharedMemoriesGetAllReq) returns (SharedMemoriesGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(SharedMemoriesUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 

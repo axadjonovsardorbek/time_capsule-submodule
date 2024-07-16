@@ -11,7 +11,7 @@ service MemoriesService{
     rpc Create(MemoriesCreateReq) returns (Void);
     rpc GetById(ById) returns (MemoriesGetByIdRes);
     rpc GetAll(MemoriesGetAllReq) returns (MemoriesGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(MemoriesUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 
@@ -30,8 +30,7 @@ message MemoriesUpdateReq{
     string id = 1;
     string title = 2;
     string description = 3;
-    repeated string tags = 4;
-    string privacy = 5;
+    string privacy = 4;
 }
 
 // message MemoriesRes{

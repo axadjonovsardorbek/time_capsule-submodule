@@ -11,7 +11,7 @@ service CustomEventsService{
     rpc Create(CustomEventsCreateReq) returns (Void);
     rpc GetById(ById) returns (CustomEventsGetByIdRes);
     rpc GetAll(CustomEventsGetAllReq) returns (CustomEventsGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(CustomEventsUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 

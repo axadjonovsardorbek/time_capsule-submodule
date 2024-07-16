@@ -11,7 +11,7 @@ service MediasService{
     rpc Create(MediasCreateReq) returns (Void);
     rpc GetById(ById) returns (MediasGetByIdRes);
     rpc GetAll(MediasGetAllReq) returns (MediasGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(MediasUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 

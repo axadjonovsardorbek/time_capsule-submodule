@@ -11,7 +11,7 @@ service MilestonesService{
     rpc Create(MilestonesCreateReq) returns (Void);
     rpc GetById(ById) returns (MilestonesGetByIdRes);
     rpc GetAll(MilestonesGetAllReq) returns (MilestonesGetAllRes);
-    rpc Update(ById) returns (Void);
+    rpc Update(MilestonesUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
 }
 
