@@ -9,12 +9,12 @@ import "common.proto";
 service UserService{
     rpc Register(UsersRegister)returns(Void);
     rpc Login(UsersLogin) returns(Tokens);
-    rpc Profile(Void) returns(UsersProfile);
+    rpc Profile(UsersProfileReq) returns(UsersProfile);
     rpc UpdateProfile(UsersUpdateProfile) returns(Void);
     rpc ForgotPassword(UsersForgotPassword) returns(Void);
     rpc ResetPassword(UsersResetPassword) returns(Void);
     rpc ChangePassword(UsersChangePassword) returns(Void);
-    rpc Settings(Void) returns(UsersSettings);
+    rpc Settings(UsersProfileReq) returns(UsersSettings);
     rpc SettingsUpdate(UsersUpdateSettings) returns(Void);
 }
 
@@ -24,7 +24,7 @@ message UsersRegister{
     string password = 3;
     string full_name = 4;
     string date_of_birth = 5;
-    UsersSettings settings = 6;
+    string role = 6;
 }
 
 message UsersLogin{
@@ -40,9 +40,14 @@ message UsersProfile{
     string date_of_birth = 5;
 }
 
+message UsersProfileReq{
+    string username = 1;
+}
+
 message UsersUpdateProfile{
-    string full_name = 1;
-    string date_of_birth = 2;
+    string id = 1;
+    string full_name = 2;
+    string date_of_birth = 3;
 }
 
 message UsersForgotPassword{
@@ -52,6 +57,7 @@ message UsersForgotPassword{
 message UsersChangePassword{
     string current_password = 1;
     string new_pasword = 2;
+    string id = 3;
 }
 
 message UsersResetPassword{
@@ -61,16 +67,17 @@ message UsersResetPassword{
 
 message UsersSettings{
     string privacy_level = 1;
-    bool notifications_enabled = 2;
+    string notifications_enabled = 2;
     string language = 3;
     string theme = 4;
 }
 
 message UsersUpdateSettings{
     string privacy_level = 1;
-    bool notifications_enabled = 2;
+    string notifications_enabled = 2;
     string language = 3;
     string theme = 4;
+    string id = 5;
 }
 
 message UsersRes{
