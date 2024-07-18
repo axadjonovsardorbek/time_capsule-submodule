@@ -20,7 +20,7 @@ message MemoriesCreateReq{
     string title = 2;
     string description = 3;
     string date = 4;
-    repeated string tags = 5;
+    bytes tags = 5;
     string location = 6;
     string place_name = 7;
     string privacy = 8;
@@ -50,7 +50,7 @@ message MemoriesRes{
     string title = 2;
     string description = 3;
     string date = 4;
-    repeated string tags = 5;
+    bytes tags = 5;
     string location = 6;
     string place_name = 7;
     string privacy = 8;

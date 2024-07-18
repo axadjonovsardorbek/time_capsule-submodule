@@ -21,7 +21,6 @@ message SharedMemoriesCreateReq{
     string shared_id = 2;
     string recipient_id = 3;
     string message = 4;
-    string shared_at = 5;
 }
 
 message SharedMemoriesUpdateReq{
