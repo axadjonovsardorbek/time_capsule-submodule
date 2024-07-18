@@ -49,5 +49,6 @@ message HistoricalEventsGetAllRes{
 message HistoricalEventsGetAllReq{
     string user_id = 1;
     string date = 2;
-    Filter filter = 3;
+    string category = 3;
+    Filter filter = 4;
 }
