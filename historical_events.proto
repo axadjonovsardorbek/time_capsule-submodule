@@ -5,6 +5,7 @@ package time_capsule;
 option go_package = "genproto/";
 
 import "common.proto";
+import "personal_events.proto";
 
 service HistoricalEventsService{
     rpc Create(HistoricalEventsRes) returns (Void);
@@ -12,6 +13,7 @@ service HistoricalEventsService{
     rpc GetAll(HistoricalEventsGetAllReq) returns (HistoricalEventsGetAllRes);
     rpc Update(HistoricalEventsUpdateReq) returns (Void);
     rpc Delete(ById) returns (Void);
+    rpc Context(ContextReq) returns (ContextRes);
 }
 
 message HistoricalEventsCreateReq{
@@ -51,4 +53,14 @@ message HistoricalEventsGetAllReq{
     string date = 2;
     string category = 3;
     Filter filter = 4;
+}
+
+message ContextReq{
+    string date = 1;
+    string user_id = 2;
+}
+
+message ContextRes{
+    HistoricalEventsGetAllRes historical = 1;
+    PersonalEventsGetAllRes personal = 2;
 }
