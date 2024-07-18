@@ -39,8 +39,7 @@ message MediasRes{
     string id = 1;
     string type = 2;
     string url = 3;
-    string date = 4;
-    string memory_id = 5;
+    string memory_id = 4;
 }
 
 message MediasGetByIdRes{
