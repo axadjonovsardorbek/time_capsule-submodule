@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "common.proto";
+
+service PersonalEventsService{
+    rpc Create(PersonalEventsRes) returns (Void);
+    rpc GetById(ById) returns (PersonalEventsGetByIdRes);
+    rpc GetAll(PersonalEventsGetAllReq) returns (PersonalEventsGetAllRes);
+    rpc Update(PersonalEventsUpdateReq) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message PersonalEventsCreateReq{
+    string user_id = 1;
+    string type = 2;
+    string title = 3;
+    string date = 4;
+    string preview = 5;
+}
+
+message PersonalEventsUpdateReq{
+    string id = 1;
+    string title = 2;
+    string preview = 3;
+}
+
+message PersonalEventsRes{
+    string id = 1;
+    string user_id = 2;
+    string type = 3;
+    string title = 4;
+    string date = 5;
+    string preview = 6;
+}
+
+message PersonalEventsGetByIdRes{
+    PersonalEventsRes event = 1;
+}
+
+message PersonalEventsGetAllRes{
+    repeated PersonalEventsRes events = 1;
+    int32 count = 2;
+}
+
+message PersonalEventsGetAllReq{
+    string user_id = 1;
+    Filter filter = 2;
+}

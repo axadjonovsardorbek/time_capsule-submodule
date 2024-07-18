@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package time_capsule;
+
+option go_package = "genproto/";
+
+import "common.proto";
+
+service HistoricalEventsService{
+    rpc Create(HistoricalEventsRes) returns (Void);
+    rpc GetById(ById) returns (HistoricalEventsGetByIdRes);
+    rpc GetAll(HistoricalEventsGetAllReq) returns (HistoricalEventsGetAllRes);
+    rpc Update(HistoricalEventsUpdateReq) returns (Void);
+    rpc Delete(ById) returns (Void);
+}
+
+message HistoricalEventsCreateReq{
+    string user_id = 1;
+    string category = 2;
+    string title = 3;
+    string date = 4;
+    string description = 5;
+}
+
+message HistoricalEventsUpdateReq{
+    string id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+message HistoricalEventsRes{
+    string id = 1;
+    string user_id = 2;
+    string category = 3;
+    string title = 4;
+    string date = 5;
+    string description = 6;
+}
+
+message HistoricalEventsGetByIdRes{
+    HistoricalEventsRes event = 1;
+}
+
+message HistoricalEventsGetAllRes{
+    repeated HistoricalEventsRes events = 1;
+    int32 count = 2;
+}
+
+message HistoricalEventsGetAllReq{
+    string user_id = 1;
+    Filter filter = 2;
+}
